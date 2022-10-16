@@ -3,6 +3,7 @@ const linearSearchRight = require('../linearSearch/2')
 const findMax = require('../linearSearch/3')
 const findMaxUsingIndex = require('../linearSearch/31')
 const twoMax = require('../linearSearch/4')
+const minEven = require('../linearSearch/5')
 
 describe('linear search find first element', function () {
     test('return index of element', () => {
@@ -82,5 +83,32 @@ describe('linear search find two max element', function () {
     })
     test('only two elements', () => {
         expect(twoMax([1, 1])).toEqual([1, 1])
+    })
+})
+
+describe('linear search find min even element', function () {
+    test('element somewhere in array', () => {
+        expect(minEven([1, 2, 1, 4, 2, 3])).toBe(2)
+    })
+    test('element is first', () => {
+        expect(minEven([2, 5, 1, 4, 3, 3])).toBe(2)
+    })
+    test('element is last', () => {
+        expect(minEven([1, 2, 1, 4, 2, 0])).toBe(0)
+    })
+    test('no even elements', () => {
+        expect(minEven([1, 1, 1, 5, 9, 3])).toBe(-1)
+    })
+    test('empty array', () => {
+        expect(minEven([])).toBe(-1)
+    })
+    test('all elements are same', () => {
+        expect(minEven([2, 2, 2, 2, 2, 2])).toBe(2)
+    })
+    test('there is only one element in array', () => {
+        expect(minEven([2])).toBe(2)
+    })
+    test('element is negative', () => {
+        expect(minEven([1, -2, 1, 4, 2, 3])).toBe(-2)
     })
 })
