@@ -4,6 +4,7 @@ const findMax = require('../linearSearch/3')
 const findMaxUsingIndex = require('../linearSearch/31')
 const twoMax = require('../linearSearch/4')
 const minEven = require('../linearSearch/5')
+const minLengthWords = require('../linearSearch/6')
 
 describe('linear search find first element', function () {
     test('return index of element', () => {
@@ -110,5 +111,20 @@ describe('linear search find min even element', function () {
     })
     test('element is negative', () => {
         expect(minEven([1, -2, 1, 4, 2, 3])).toBe(-2)
+    })
+})
+
+describe('words with min length', function () {
+    test('word in array', () => {
+        expect(minLengthWords(['aa', 'a', 'bb', 'f', 'ccc'])).toBe('a f')
+    })
+    test('all words are same', () => {
+        expect(minLengthWords(['aa', 'aa', 'aa', 'aa'])).toBe('aa aa aa aa')
+    })
+    test('there is only one word in array', () => {
+        expect(minLengthWords(['aa'])).toBe('aa')
+    })
+    test('some words are empty strings', () => {
+        expect(minLengthWords(['aa', 'a', 'bb', 'f', 'ccc', '', ''])).toBe(' ')
     })
 })
