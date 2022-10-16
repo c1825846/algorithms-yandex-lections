@@ -2,6 +2,7 @@ const linearSearchLeft = require('../linearSearch/1')
 const linearSearchRight = require('../linearSearch/2')
 const findMax = require('../linearSearch/3')
 const findMaxUsingIndex = require('../linearSearch/31')
+const twoMax = require('../linearSearch/4')
 
 describe('linear search find first element', function () {
     test('return index of element', () => {
@@ -60,5 +61,26 @@ describe('linear search find max element', function () {
     })
     test('only one element', () => {
         expect(findMaxUsingIndex([1])).toBe(1)
+    })
+})
+
+describe('linear search find two max element', function () {
+    test('maxes go in a row', () => {
+        expect(twoMax([4, 5, 6, 1, 2, 3])).toEqual([6, 5])
+    })
+    test('maxes go in a row reversed', () => {
+        expect(twoMax([1, 6, 5, 1, 2, 4])).toEqual([6, 5])
+    })
+    test('maxes placed randomly', () => {
+        expect(twoMax([5, 2, 3, 4, 2, 4])).toEqual([5, 4])
+    })
+    test('maxes are same', () => {
+        expect(twoMax([1, 2, 3, 4, 2, 4])).toEqual([4, 4])
+    })
+    test('all elements are same', () => {
+        expect(twoMax([1, 1, 1, 1, 1, 1])).toEqual([1, 1])
+    })
+    test('only two elements', () => {
+        expect(twoMax([1, 1])).toEqual([1, 1])
     })
 })
